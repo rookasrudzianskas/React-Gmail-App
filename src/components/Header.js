@@ -10,7 +10,19 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 const Header = () => {
     return (
         <div className="header">
-            <h1>Header</h1>
+            <div className="header__left">
+                <IconButton>
+                    <MenuIcon />
+                </IconButton>
+            </div>
+
+            <div className="header__middle">
+
+            </div>
+
+            <div className="header__right">
+
+            </div>
         </div>
     );
 };
