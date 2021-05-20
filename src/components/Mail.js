@@ -17,11 +17,14 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import {useHistory} from "react-router-dom";
 
 const Mail = () => {
+
+    const history = useHistory();
+
     return (
         <div className="mail">
             <div className="mail__tools">
                 <div className="mail__toolsLeft">
-                    <IconButton >
+                    <IconButton onClick={() => history.push("/")} >
                         <ArrowBackIcon />
                     </IconButton>
                     <IconButton>
