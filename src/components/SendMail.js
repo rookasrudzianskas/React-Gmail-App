@@ -37,6 +37,7 @@ const SendMail = () => {
                 )}
 
                 <input name="message" placeholder="Message" type="text" className="sendMail__message" ref={register({ required: true })}/>
+                {/* if there are erros, it shows that p tag*/}
                 {errors.message && (
                     <p className="sendMail__error">Message is required !!</p>
                 )}
