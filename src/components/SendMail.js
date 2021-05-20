@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 // const { ref, ...rest } = register('value_name')
 import {closeSendMessage} from "../features/mailSlice";
 import { useDispatch } from "react-redux";
+import db from "../firebase";
+import firebase from "firebase";
 // import { closeSendMessage } from "./features/mailSlice";
 
 const SendMail = () => {
@@ -13,10 +15,19 @@ const SendMail = () => {
     const { register, handleSubmit, watch, errors } = useForm();
     const dispatch = useDispatch();
 
-    const onSubmit = (data) => {
+    const onSubmit = (formData) => {
     // dat ais what comes back to the function
-        console.log(data);
-    }
+        console.log(formData);
+        db.collection('emails').add({
+            to: formData.to,
+            subject: formData.subject,
+            message: formData.message,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        });
+
+        dispatch(closeSendMessage())
+    };
+
     return (
         <div className="sendMail">
             <div className="sendMail__header">
@@ -44,7 +55,7 @@ const SendMail = () => {
                 )}
 
                 <div className="sendMail__options">
-                    <Button onClick={() => dispatch(closeSendMessage())} variant="contained" color="primary" type="submit" className="sendMail__send">Send</Button>
+                    <Button variant="contained" color="primary" type="submit" className="sendMail__send">Send</Button>
                 </div>
             </form>
         </div>
