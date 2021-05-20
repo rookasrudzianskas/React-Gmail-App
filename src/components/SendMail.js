@@ -27,7 +27,7 @@ const SendMail = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 {/*ref={register({ required: true })}  this registers the input is somewhere and makes it required*/}
                 {/* connected to the forms*/}
-                <input name="to" placeholder="To" type="text" ref={register({ required: true })}/>
+                <input name="to" placeholder="To" type="email" ref={register({ required: true })}/>
                 {/* if there are errors render this tag*/}
                 {errors.to && <p className="sendMail__error">To is required !!</p>}
 
@@ -44,7 +44,7 @@ const SendMail = () => {
                 )}
 
                 <div className="sendMail__options">
-                    <Button variant="contained" color="primary" type="submit" className="sendMail__send">Send</Button>
+                    <Button onClick={() => dispatch(closeSendMessage())} variant="contained" color="primary" type="submit" className="sendMail__send">Send</Button>
                 </div>
             </form>
         </div>
