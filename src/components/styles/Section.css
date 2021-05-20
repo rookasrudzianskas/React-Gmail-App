@@ -1,0 +1,31 @@
+.section {
+    display: flex;
+    align-items: center;
+    border-bottom-width: 2px;
+    padding: 15px;
+    min-width: 200px;
+    cursor: pointer;
+    color: #818181;
+    border-radius: 1px;
+
+}
+
+.MuiSvgIcon-root {
+    margin-right: 15px;
+}
+
+.section--selected {
+    background-color: whitesmoke;
+    border-width: 3px !important;
+
+}
+
+.section:hover {
+    background-color: whitesmoke;
+    border-width: 3px !important;
+    border-radius: 1px;
+}
+
+.section > h4 {
+
+}

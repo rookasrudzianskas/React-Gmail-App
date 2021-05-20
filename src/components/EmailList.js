@@ -12,6 +12,7 @@ import LocalOfferIcon from "@material-ui/icons/LocalOffer";
 
 import { Checkbox, Icon, IconButton } from "@material-ui/core";
 import { ArrowDropDown, ChevronLeft } from "@material-ui/icons";
+import Section from "./Section";
 
 
 const EmailList = () => {
@@ -54,6 +55,8 @@ const EmailList = () => {
 
             <div className="emailList__sections">
                 <Section Icon={InboxIcon} title="primary" color="red" selected />
+                <Section Icon={PeopleIcon} title="Social" color="#1A73E8" />
+                <Section Icon={LocalOfferIcon} title="Promotions" color="green" />
             </div>
         </div>
     );
