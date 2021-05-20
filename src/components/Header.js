@@ -19,10 +19,10 @@ const Header = () => {
             </div>
 
             <div className="header__middle">
-                <IconButton>
                     <SearchIcon />
-                </IconButton>
 
+                <input type="text" placeholder="Search mail"/>
+                    <ArrowDropDownIcon className="header__inputCaret" />
             </div>
 
             <div className="header__right">
