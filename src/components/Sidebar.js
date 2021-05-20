@@ -13,8 +13,12 @@ import DuoIcon from "@material-ui/icons/Duo";
 import PhoneIcon from "@material-ui/icons/Phone";
 import "./styles/Sidebar.css";
 import SidebarOption from "./SidebarOption";
+import {useDispatch} from "react-redux";
 
 const Sidebar = () => {
+
+    const dispatch = useDispatch();
+
     return (
         <div className="sidebar">
             <Button  startIcon={<AddIcon fontSize="large" />}
