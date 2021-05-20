@@ -5,8 +5,12 @@ export const mailSlice = createSlice({
   initialState: {
     // mail initial state
     sendMessageIsOpen: false,
+    selectedMail: null,
   },
   reducers: {
+    selectedMail: (state, action) => {
+      state.selectedMail = action.payload
+    },
     openSendMessage: (state) => {
       // if you get the openMessage, set state to true
       state.sendMessageIsOpen = true;
@@ -18,10 +22,11 @@ export const mailSlice = createSlice({
   },
 });
 
-export const { openSendMessage, closeSendMessage } = mailSlice.actions;
+export const { openSendMessage, closeSendMessage, selectedMail } = mailSlice.actions;
 
 // to pull from the data layer
 // we are going to get some awesome data from this layer from here
 export const selectSendMessageIsOpen = (state) => state.mail.sendMessageIsOpen;
+export const selectOpenMail = (state) => state.mail.selectedMail;
 
 export default mailSlice.reducer;
