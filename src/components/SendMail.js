@@ -27,8 +27,19 @@ const SendMail = () => {
                 {/*ref={register({ required: true })}  this registers the input is somewhere and makes it required*/}
                 {/* connected to the forms*/}
                 <input name="to" placeholder="To" type="text" ref={register({ required: true })}/>
+                {/* if there are errors render this tag*/}
+                {errors.to && <p className="sendMail__error">To is required !!</p>}
+
                 <input name="subject" placeholder="Subject" type="text" ref={register({ required: true })} />
+                {/* subject error */}
+                {errors.subject && (
+                    <p className="sendMail__error">Subject is required !!</p>
+                )}
+
                 <input name="message" placeholder="Message" type="text" className="sendMail__message" ref={register({ required: true })}/>
+                {errors.message && (
+                    <p className="sendMail__error">Message is required !!</p>
+                )}
 
                 <div className="sendMail__options">
                     <Button variant="contained" color="primary" type="submit" className="sendMail__send">Send</Button>
