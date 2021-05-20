@@ -6,7 +6,7 @@ import {Checkbox, IconButton} from "@material-ui/core";
 import {useHistory} from "react-router-dom";
 
 const EmailRow = ({ id, title, subject, description, time }) => {
-
+    console.log(id, title, subject, description, time)
     const history = useHistory();
     return (
         <div onClick={() => history.push("/mail")} className="emailRow">

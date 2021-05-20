@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import "./styles/EmailList.css";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import RedoIcon from "@material-ui/icons/Redo";
@@ -14,11 +14,26 @@ import { Checkbox, Icon, IconButton } from "@material-ui/core";
 import { ArrowDropDown, ChevronLeft } from "@material-ui/icons";
 import Section from "./Section";
 import EmailRow from "./EmailRow";
+import db from "../firebase";
 
 
 const EmailList = () => {
+
+    const [emails, setEmails] = useState([]);
+    console.log(emails);
+    useEffect(() => {
+        // run once it loads
+        db.collection('emails').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
+            setEmails(snapshot.docs.map(doc => ({
+                id: doc.id,
+                data: doc.data(),
+            })))
+        })
+    }, []);
+
     return (
         <div className="emailList">
+
             <div className="emailList__settings">
                 <div className="emailList__settingLeft">
                     <Checkbox />
@@ -61,8 +76,9 @@ const EmailList = () => {
             </div>
 
             <div className="emailList__list">
-                <EmailRow title="Rookas test" description="This is a test djfsdfhdjkfhsdklfhsdfkdlafkdhsfjkdsfhdskfdhfjdsfhdskjfsdhfksdfhsdjkfhsdfkjsdh" subject="This is slit" time="10am"/>
-                <EmailRow title="Rookas test" description="This is a test djfsdfhdjkfhsdklfhsdfkdlafkdhsfjkdsfhdskfdhfjdsfhdskjfsdhfksdfhsdjkfhsdfkjsdh" subject="This is slit" time="10am"/>
+                {emails.map(({id, data: {message, subject, to, timestamp }}) => (
+                    <EmailRow id={id} key={id} title={to} subject={subject} description={message} time={new Date(timestamp?.seconds * 1000).toUTCString()}/>
+                ))}
             </div>
         </div>
     );
