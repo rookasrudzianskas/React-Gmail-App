@@ -15,12 +15,12 @@ const SendMail = () => {
             </div>
 
             <form action="">
-                <input type="text"/>
-                <input type="text"/>
-                <input type="text"/>
+                <input placeholder="To" type="text"/>
+                <input placeholder="Subject" type="text"/>
+                <input placeholder="Message" type="text" className="sendMail__message"/>
 
                 <div className="sendMail__options">
-                    <Button className="sendMail__send">Send</Button>
+                    <Button variant="contained" color="primary" type="submit" className="sendMail__send">Send</Button>
                 </div>
             </form>
         </div>
