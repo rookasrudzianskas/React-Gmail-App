@@ -79,6 +79,7 @@ const EmailList = () => {
                 {emails.map(({id, data: {message, subject, to, timestamp }}) => (
                     <EmailRow id={id} key={id} title={to} subject={subject} description={message} time={new Date(timestamp?.seconds * 1000).toUTCString()}/>
                 ))}
+
             </div>
         </div>
     );
