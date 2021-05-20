@@ -3,18 +3,27 @@ import "./styles/SendMail.css";
 import CloseIcon from "@material-ui/icons/Close";
 import { Button } from "@material-ui/core";
 import { useForm } from "react-hook-form";
+// const { ref, ...rest } = register('value_name')
+
 import { useDispatch } from "react-redux";
 // import { closeSendMessage } from "./features/mailSlice";
 
 const SendMail = () => {
+
+    const { register, handleSubmit, watch, errors } = useForm();
+
+    const onSubmit = (data) => {
+    // dat ais what comes back to the function
+        console.log(data);
+    }
     return (
         <div className="sendMail">
             <div className="sendMail__header">
                 <h3>New Message</h3>
                 <CloseIcon  className="sendMail__close"/>
             </div>
-
-            <form action="">
+            {/* handleSubmit, is what the forms library provides, but we have to call it using onSubmit, oour function*/}
+            <form onSubmit={handleSubmit(onSubmit)}>
                 {/*ref={register({ required: true })}  this registers the input is somewhere and makes it required*/}
                 {/* connected to the forms*/}
                 <input name="to" placeholder="To" type="text" ref={register({ required: true })}/>
