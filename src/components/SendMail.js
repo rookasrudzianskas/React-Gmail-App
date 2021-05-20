@@ -4,13 +4,14 @@ import CloseIcon from "@material-ui/icons/Close";
 import { Button } from "@material-ui/core";
 import { useForm } from "react-hook-form";
 // const { ref, ...rest } = register('value_name')
-
+import {closeSendMessage} from "../features/mailSlice";
 import { useDispatch } from "react-redux";
 // import { closeSendMessage } from "./features/mailSlice";
 
 const SendMail = () => {
 
     const { register, handleSubmit, watch, errors } = useForm();
+    const dispatch = useDispatch();
 
     const onSubmit = (data) => {
     // dat ais what comes back to the function
@@ -20,7 +21,7 @@ const SendMail = () => {
         <div className="sendMail">
             <div className="sendMail__header">
                 <h3>New Message</h3>
-                <CloseIcon  className="sendMail__close"/>
+                <CloseIcon  onClick={() => dispatch(closeSendMessage())} className="sendMail__close"/>
             </div>
             {/* handleSubmit, is what the forms library provides, but we have to call it using onSubmit, oour function*/}
             <form onSubmit={handleSubmit(onSubmit)}>

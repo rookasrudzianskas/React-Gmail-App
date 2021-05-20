@@ -23,7 +23,7 @@ const Sidebar = () => {
     return (
         <div className="sidebar">
             <Button  startIcon={<AddIcon fontSize="large" />}
-                     className="sidebar__compose" onClick={() => dispatch(openSendMessage)} >Compose</Button>
+                     className="sidebar__compose" onClick={() => dispatch(openSendMessage())} >Compose</Button>
 
             <SidebarOption Icon={InboxIcon} title="inbox" number={54} selected={true} />
             <SidebarOption Icon={StarIcon} title="Starred" number={11} />
