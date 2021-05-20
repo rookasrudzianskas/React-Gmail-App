@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
@@ -11,15 +11,34 @@ import {
 import Mail from "./components/Mail";
 import EmailList from "./components/EmailList";
 import SendMail from "./components/SendMail";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {selectSendMessageIsOpen} from "./features/mailSlice";
-import {selectUser} from "./features/userSlice";
+import {login, selectUser} from "./features/userSlice";
 import Login from "./components/Login";
+import {auth} from "./firebase";
 
 function App() {
     // gets the data by selector from the data layer in here
     const sendMessageIsOpen = useSelector(selectSendMessageIsOpen);
     const user = useSelector(selectUser);
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        auth.onAuthStateChanged((user) => {
+            if(user) {
+                // the use is logged in
+
+                dispatch(login({
+                    displayName: user.displayName,
+                    email: user.email,
+                    photoURL: user.photoURL,
+                }))
+            } else {
+                // logged out
+            }
+        })
+    }, []);
 
   return (
         <Router>
