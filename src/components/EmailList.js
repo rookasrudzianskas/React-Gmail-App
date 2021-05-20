@@ -13,6 +13,7 @@ import LocalOfferIcon from "@material-ui/icons/LocalOffer";
 import { Checkbox, Icon, IconButton } from "@material-ui/core";
 import { ArrowDropDown, ChevronLeft } from "@material-ui/icons";
 import Section from "./Section";
+import EmailRow from "./EmailRow";
 
 
 const EmailList = () => {
@@ -60,7 +61,7 @@ const EmailList = () => {
             </div>
 
             <div className="emailList__list">
-
+                <EmailRow title="Rookas test" description="This is a test djfsdfhdjkfhsdklfhsdfkdlafkdhsfjkdsfhdskfdhfjdsfhdskjfsdhfksdfhsdjkfhsdfkjsdh" subject="This is slit" time="10am"/>
             </div>
         </div>
     );

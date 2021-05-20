@@ -1,35 +1,30 @@
 import React from 'react';
 import "./styles/EmailRow.css";
-import {CheckBox, LabelImportantOutlined, StarBorderOutlined} from "@material-ui/icons";
-import {IconButton} from "@material-ui/core";
+import StarBorderOutlinedIcon from "@material-ui/icons/StarBorderOutlined";
+import LabelImportantOutlinedIcon from "@material-ui/icons/LabelImportantOutlined";
+import {Checkbox, IconButton} from "@material-ui/core";
 
 const EmailRow = ({ id, title, subject, description, time }) => {
     return (
         <div className="emailRow">
 
             <div className="emailRow__options">
-                <CheckBox />
+                <Checkbox />
                 <IconButton>
-                    <StarBorderOutlined />
+                    <StarBorderOutlinedIcon />
                 </IconButton>
-
                 <IconButton>
-                    <LabelImportantOutlined />
+                    <LabelImportantOutlinedIcon />
                 </IconButton>
             </div>
-
-            <div className="emailRow__title">
-
-            </div>
-
+            <h3 className="emailRow__title">{title}</h3>
             <div className="emailRow__message">
-
+                <h4>
+                    {subject}{" "}
+                    <span className="emailRow__description">{description}</span>
+                </h4>
             </div>
-
-            <div className="emailRow__description">
-
-            </div>
-
+            <p className="emailRow_time">{time}</p>
         </div>
     );
 };
