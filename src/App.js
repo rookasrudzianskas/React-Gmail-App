@@ -13,13 +13,19 @@ import EmailList from "./components/EmailList";
 import SendMail from "./components/SendMail";
 import {useSelector} from "react-redux";
 import {selectSendMessageIsOpen} from "./features/mailSlice";
+import {selectUser} from "./features/userSlice";
+import Login from "./components/Login";
 
 function App() {
     // gets the data by selector from the data layer in here
     const sendMessageIsOpen = useSelector(selectSendMessageIsOpen);
+    const user = useSelector(selectUser);
 
   return (
         <Router>
+            {!user ? (
+                <Login />
+            ) : (
             <div className="app">
             <Header />
                 <div className="app__body">
@@ -40,6 +46,7 @@ function App() {
 
 
             </div>
+            )}
             </Router>
 
   );
