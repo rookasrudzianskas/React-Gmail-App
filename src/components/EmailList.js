@@ -62,6 +62,7 @@ const EmailList = () => {
 
             <div className="emailList__list">
                 <EmailRow title="Rookas test" description="This is a test djfsdfhdjkfhsdklfhsdfkdlafkdhsfjkdsfhdskfdhfjdsfhdskjfsdhfksdfhsdjkfhsdfkjsdh" subject="This is slit" time="10am"/>
+                <EmailRow title="Rookas test" description="This is a test djfsdfhdjkfhsdklfhsdfkdlafkdhsfjkdsfhdskfdhfjdsfhdskjfsdhfksdfhsdjkfhsdfkjsdh" subject="This is slit" time="10am"/>
             </div>
         </div>
     );
