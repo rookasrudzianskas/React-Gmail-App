@@ -20,7 +20,7 @@ const SendMail = () => {
                 <input type="text"/>
 
                 <div className="sendMail__options">
-                    <Button>Send</Button>
+                    <Button className="sendMail__send">Send</Button>
                 </div>
             </form>
         </div>
