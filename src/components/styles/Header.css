@@ -28,6 +28,7 @@
 
 .header__middle > .MuiSvgIcon-root {
     color:grey;
+    cursor: pointer;
 }
 
 .header__middle > input {
@@ -38,3 +39,38 @@
     font-size: medium;
     background-color: transparent;
 }
+
+.header__right {
+    display: flex;
+    padding-right: 20px;
+
+}
+
+.MuiSvgIcon-root {
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

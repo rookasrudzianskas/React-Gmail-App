@@ -26,7 +26,15 @@ const Header = () => {
             </div>
 
             <div className="header__right">
+                <IconButton>
+                    <AppsIcon />
+                </IconButton>
 
+                <IconButton>
+                    <NotificationsIcon />
+                </IconButton>
+
+                    <Avatar />
             </div>
         </div>
     );
