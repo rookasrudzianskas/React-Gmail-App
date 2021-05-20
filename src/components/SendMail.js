@@ -2,8 +2,8 @@ import React from 'react';
 import "./styles/SendMail.css";
 import CloseIcon from "@material-ui/icons/Close";
 import { Button } from "@material-ui/core";
-// import { useForm } from "react-hook-form";
-// import { useDispatch } from "react-redux";
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 // import { closeSendMessage } from "./features/mailSlice";
 
 const SendMail = () => {
@@ -15,9 +15,11 @@ const SendMail = () => {
             </div>
 
             <form action="">
-                <input placeholder="To" type="text"/>
-                <input placeholder="Subject" type="text"/>
-                <input placeholder="Message" type="text" className="sendMail__message"/>
+                {/*ref={register({ required: true })}  this registers the input is somewhere and makes it required*/}
+                {/* connected to the forms*/}
+                <input name="to" placeholder="To" type="text" ref={register({ required: true })}/>
+                <input name="subject" placeholder="Subject" type="text" ref={register({ required: true })} />
+                <input name="message" placeholder="Message" type="text" className="sendMail__message" ref={register({ required: true })}/>
 
                 <div className="sendMail__options">
                     <Button variant="contained" color="primary" type="submit" className="sendMail__send">Send</Button>
